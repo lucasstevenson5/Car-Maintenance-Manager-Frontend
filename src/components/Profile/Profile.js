@@ -83,7 +83,7 @@ class Profile extends Component {
         return (
             <div>
                 {this.props.currentUser ? 
-                <h1 className="text-center">Welcome {this.props.currentUser.name}</h1>
+                <h1 className="text-center bg-blackcoral">Welcome {this.props.currentUser.name}</h1>
                 :
                 <h1 className="text-center">Welcome</h1>
                 }

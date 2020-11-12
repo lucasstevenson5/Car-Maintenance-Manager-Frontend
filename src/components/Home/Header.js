@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Header(props) {
     return (
         <div>
-            <header className="flex flex-row justify-between p-8 bg-gray-500">
+            <header className="flex flex-row justify-between p-8 bg-blackcoral">
                 <Link to="/" className="hover:text-gray-200 hover:underline">Car Maintenance Manager</Link>
                 <nav>
                     {!props.currentUser && <Link to="/signup" 
