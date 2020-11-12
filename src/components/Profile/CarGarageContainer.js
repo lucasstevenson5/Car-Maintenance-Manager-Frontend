@@ -16,8 +16,7 @@ class CarGarageContainer extends Component {
 
     render() {
         return (
-            <div className="bg-gray-500">
-                <h3 className="text-center">Your Garage</h3><br />
+            <div className="bg-gainsboro">
                 <nav className="text-center">
                     <Link to="/profile/cars/new" className="text-center hover:text-gray-200 hover:underline">Add a car to your garage</Link>
                 </nav>
@@ -30,15 +29,8 @@ class CarGarageContainer extends Component {
                                     />
                         }}
                     />
-                    {/* <Route exact path="/profile/cars/:carDetails" 
-                        render={ (props) => {
-                            return  <CarDetails
-                                        {...props}
-                                    />
-                        }}
-                    /> */}
                     {this.props.userProf ?
-                        <div>
+                        <div className="flex flex-wrap justify-center">
                             {this.props.userProf.Cars.map((car, id) => {
                                 return  <CarGarage 
                                             handleVerify={this.props.handleVerify}

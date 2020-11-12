@@ -30,10 +30,10 @@ class EditProfileInfo extends Component {
 
     render() {
         return (
-            <div className="text-center">
+            <div className="text-center bg-gainsboro">
                 <br /><form 
                         onSubmit={(e) => this.props.updateProfile(e, this.state)}
-                        className="bg-gray-500 p-2 border-solid border-2 border-gray-900 w-3/5 max-w-sm text-center m-auto">
+                        className="bg-blackcoral p-2 border-solid border-2 border-gray-900 w-3/5 max-w-sm text-center m-auto">
                         Name: <input 
                             className="border-solid border-2 border-gray-900 ml-10 pl-1"
                             type="text"

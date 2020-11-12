@@ -23,10 +23,9 @@ class NewCarForm extends Component {
     render() {
         return (
             <div className="text-center mt-2">
-                <h1>New Car Form</h1>
                 {this.props.error && <div>{this.props.error}</div>}
                 <form onSubmit={(e) => this.props.addCar(e, this.state)} 
-                    className="flex flex-col border-solid border-2 border-gray-900 bg-gray-200 w-3/5 max-w-sm m-auto"
+                    className="flex flex-col border-solid border-2 border-gray-900 bg-blackcoral w-3/5 max-w-sm m-auto"
                 >
                     <div className="mb-2">
                         <span className="ml-1">Year:</span>

@@ -82,15 +82,18 @@ class Profile extends Component {
     render() {
         return (
             <div>
+                <nav className="text-center bg-starblue p-6">
+                    <Link to="/profile/edit" 
+                        className="hover:text-gainsboro hover:underline">
+                            Edit Profile Info
+                    </Link>
+                    <Link to="/profile/cars" className="ml-8 hover:text-gainsboro hover:underline">Your Garage</Link>
+                </nav>
                 {this.props.currentUser ? 
-                <h1 className="text-center bg-blackcoral">Welcome {this.props.currentUser.name}</h1>
+                <h1 className="text-center bg-gainsboro pt-2 pb-4 text-2xl">Welcome {this.props.currentUser.name}</h1>
                 :
-                <h1 className="text-center">Welcome</h1>
+                <h1 className="text-center bg-gainsboro py-2">Welcome</h1>
                 }
-                <nav className="text-center mt-4">
-                    <Link to="/profile/edit">Edit Profile Info</Link>
-                    <Link to="/profile/cars" className="ml-8">Your Garage</Link>
-                </nav><br />
                 <main>
 
                     <Route path="/profile/edit" 

@@ -34,40 +34,66 @@ class CarDetails extends Component {
     render() {
         return (
             <div>
-                <Link to={"/profile/car/" + this.props.match.params.carDetails}>Hide Form</Link>
-                <form onSubmit={(e) => this.props.editCar(e, parseInt(this.props.match.params.carDetails), this.state)}>
-                    Year: <input className="border-solid border-2 border-gray-900"
-                        type="text"
-                        name="year"
-                        placeholder="model year"
-                        value={this.state.year}
-                        onChange={this.updateForm}
-                    />
-                    Make: <input className="border-solid border-2 border-gray-900"
-                        type="text"
-                        name="make"
-                        placeholder="car manufacturer"
-                        value={this.state.make}
-                        onChange={this.updateForm}
-                    />
-                    Model: <input className="border-solid border-2 border-gray-900"
-                        type="text"
-                        name="model"
-                        placeholder="model of car"
-                        value={this.state.model}
-                        onChange={this.updateForm}
-                    />
-                    Image URL: <input className="border-solid border-2 border-gray-900"
-                        type="text"
-                        name="image"
-                        placeholder="url of image of car"
-                        value={this.state.image}
-                        onChange={this.updateForm}
-                    />
-                    <input type="submit" value="Edit Car"
-                        className="border-solid border-2 border-gray-900"
-                    />
-                </form><br /><br />
+                
+                <form onSubmit={(e) => this.props.editCar(e, parseInt(this.props.match.params.carDetails), this.state)}
+                    className="flex flex-col w-3/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-sm m-auto"
+                >
+                    <div className="my-2">
+                        <span className="ml-1">Year:</span>
+                        <input 
+                            className="border-solid border-2 border-gray-900 ml-12 px-1"
+                            type="text"
+                            name="year"
+                            placeholder="model year"
+                            value={this.state.year}
+                            onChange={this.updateForm}
+                        />
+                    </div>
+                    <div className="mb-2">
+                        Make: 
+                        <input 
+                            className="border-solid border-2 border-gray-900 ml-12 px-1"
+                            type="text"
+                            name="make"
+                            placeholder="car manufacturer"
+                            value={this.state.make}
+                            onChange={this.updateForm}
+                        />
+                    </div>
+                    <div className="mb-2">
+                        Model: 
+                        <input 
+                            className="border-solid border-2 border-gray-900 ml-10 px-1"
+                            type="text"
+                            name="model"
+                            placeholder="model of car"
+                            value={this.state.model}
+                            onChange={this.updateForm}
+                        />
+                    </div>
+                    <div className="mb-2">
+                        Image URL: 
+                        <input 
+                            className="border-solid border-2 border-gray-900 ml-2 px-1"
+                            type="text"
+                            name="image"
+                            placeholder="url of image of car"
+                            value={this.state.image}
+                            onChange={this.updateForm}
+                        />
+                    </div>
+                    <div className="mb-2">
+                        <input type="submit" value="Edit Car"
+                            className="border-solid border-2 border-gray-900 hover:text-lavender hover:underline"
+                        />
+                    </div>
+                </form>
+                <div className="mb-4 mt-2">
+                    <Link to={"/profile/car/" + this.props.match.params.carDetails}
+                        className="hover:text-lavender hover:underline"
+                    >Hide Form</Link><br />
+                </div>
+                
                 <button onClick={(e) => this.props.deleteACar(e, parseInt(this.props.match.params.carDetails))}>Delete this car from your garage</button>
             </div>
         ) 

@@ -50,16 +50,23 @@ class CarDetails extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Car Details</h1>
+            <div className="bg-gainsboro text-center">
+                <nav className="bg-shamrock p-4">
+                    <Link to={"/profile/car/" + this.props.match.params.carDetails + "/edit"}
+                        className="hover:text-gainsboro hover:underline"
+                    >Edit Car</Link>
+                    <Link to={"/profile/car/" + this.props.match.params.carDetails + "/maintenance"}
+                        className="ml-8 hover:text-gainsboro hover:underline"
+                    >View Maintenance List</Link>
+                </nav><br />
+
                 {this.state.userCar != null && 
-                    <img src={this.state.userCar.image} alt="picture of your car" className="h-48" />
+                    <img src={this.state.userCar.image} alt="picture of your car" 
+                        className="h-48 m-auto mb-2" 
+                    />
                 }
                 
-                <nav>
-                    <Link to={"/profile/car/" + this.props.match.params.carDetails + "/edit"}>Edit Car</Link>
-                    <Link to={"/profile/car/" + this.props.match.params.carDetails + "/maintenance"} className="ml-8">View Maintenance List</Link>
-                </nav><br />
+                
 
                 <main>
                     <Route path="/profile/car/:carDetails/edit" 

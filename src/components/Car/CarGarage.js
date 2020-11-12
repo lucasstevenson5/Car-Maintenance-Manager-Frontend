@@ -10,9 +10,11 @@ class CarGarage extends Component {
 
     render() {
         return (
-            <div>
+            <div className="m-2 border-2 border-black p-2 bg-shamrock text-center">
                 <br /><h4>{this.props.car.year} {this.props.car.make} {this.props.car.model}</h4>
-                <img src={this.props.car.image} alt="picture of your car" className="h-48" />
+                <img src={this.props.car.image} alt="picture of your car" 
+                    className="h-48 max-w-xs" 
+                />
                 <Link to={"/profile/car/" + this.props.car.id}>
                     View Details
                 </Link><br /><br />
