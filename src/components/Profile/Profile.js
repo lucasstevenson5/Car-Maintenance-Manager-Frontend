@@ -83,17 +83,17 @@ class Profile extends Component {
     render() {
         return (
             <div>
-                <nav className="text-center bg-starblue p-6 border-solid border-b-2 border-black">
+                <nav className="flex flex-col sm:flex-row justify-around text-center bg-starblue p-6 border-solid border-b-2 border-black">
                     <Link to="/profile/edit" 
-                        className="hover:text-gainsboro hover:underline">
+                        className="hover:text-gainsboro hover:underline -mt-4 pb-2 sm:pb-0 sm:mt-0">
                             Edit Profile Info
                     </Link>
                     <Link to="/profile/cars" 
-                        className="ml-8 hover:text-gainsboro hover:underline">
+                        className="hover:text-gainsboro hover:underline py-2 sm:py-0 border-black border-t-2 sm:border-none">
                             Your Garage
                     </Link>
                     <Link to="/profile/schedule" 
-                        className="ml-8 hover:text-gainsboro hover:underline">
+                        className="hover:text-gainsboro hover:underline -mb-4 sm:mb-0 pt-2 sm:pt-0 border-black border-t-2 sm:border-none">
                             Generic Maintenance Schedules
                     </Link>
                 </nav>

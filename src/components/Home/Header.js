@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 function Header(props) {
     return (
         <div>
-            <header className="text-gainsboro border-solid border-b-2 border-black flex flex-row justify-between p-8 bg-blackcoral text-xl hover:text-3xl">
+            <header className="text-gainsboro border-solid border-b-2 border-black block text-center sm:flex sm:justify-between p-8 bg-blackcoral text-xl hover:text-3xl">
                 <Link to="/" className="hover:text-black hover:underline hover:text-3xl">Car Maintenance Manager</Link>
-                <nav>
+                <nav className="text-center border-t-2 sm:border-none">
                     {!props.currentUser && <Link to="/signup" 
                         className="hover:text-black hover:underline">Sign Up</Link>}
 

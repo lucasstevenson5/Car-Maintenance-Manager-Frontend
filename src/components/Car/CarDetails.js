@@ -51,20 +51,25 @@ class CarDetails extends Component {
     render() {
         return (
             <div className="bg-gainsboro text-center">
-                <nav className="bg-shamrock p-6 border-solid border-b-2 border-t-2 border-black">
+                <nav className="flex flex-col sm:flex-row justify-around bg-shamrock p-6 border-solid border-b-2 border-t-2 border-black">
                     <Link to={"/profile/car/" + this.props.match.params.carDetails + "/edit"}
-                        className="hover:text-gainsboro hover:underline"
+                        className="hover:text-gainsboro hover:underline -mt-4 pb-2 sm:pb-0 sm:mt-0"
                     >Edit Car</Link>
                     <Link to={"/profile/car/" + this.props.match.params.carDetails + "/maintenance"}
-                        className="ml-8 hover:text-gainsboro hover:underline"
+                        className="hover:text-gainsboro hover:underline py-2 sm:py-0 border-black border-t-2 sm:border-none"
                     >View Maintenance List</Link>
+                    {this.state.userCar != null && 
+                    <Link to={"/profile/car/" + this.props.match.params.carDetails + "/schedule"}
+                        className="hover:text-gainsboro hover:underline -mb-4 sm:mb-0 pt-2 sm:pt-0 border-black border-t-2 sm:border-none"
+                    >Your {this.state.userCar.model}'s Maintenance Schedule</Link>
+                    }
                 </nav><br />
 
                 {this.state.userCar != null && 
                     <img src={this.state.userCar.image} alt="picture of your car" 
                         className="h-48 m-auto mb-2" 
                     />
-                }
+                }<br />
                 
                 
 
