@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EditProfileInfo from './EditProfileInfo';
 import CarGarageContainer from './CarGarageContainer';
 import CarDetails from '../Car/CarDetails';
+import GenericMaintenance from '../MaintenanceItems/GenericMaintenance'
 
 import { rendProf, updateProf, deleteProf, postCar, updateCar, deleteCar } from '../../services/api_helper';
 
@@ -87,7 +88,14 @@ class Profile extends Component {
                         className="hover:text-gainsboro hover:underline">
                             Edit Profile Info
                     </Link>
-                    <Link to="/profile/cars" className="ml-8 hover:text-gainsboro hover:underline">Your Garage</Link>
+                    <Link to="/profile/cars" 
+                        className="ml-8 hover:text-gainsboro hover:underline">
+                            Your Garage
+                    </Link>
+                    <Link to="/profile/schedule" 
+                        className="ml-8 hover:text-gainsboro hover:underline">
+                            Generic Maintenance Schedules
+                    </Link>
                 </nav>
                 {this.props.currentUser ? 
                 <h1 className="text-center bg-gainsboro pt-2 pb-4 text-2xl">Welcome {this.props.currentUser.name}</h1>
@@ -112,6 +120,14 @@ class Profile extends Component {
                             return  <CarGarageContainer
                                         addCar={this.addCar}
                                         handleVerify={this.props.handleVerify}
+                                        {...this.state}
+                                        {...this.props}
+                                    />
+                        }}
+                    />
+                    <Route path="/profile/schedule" 
+                        render={ (props) => {
+                            return  <GenericMaintenance
                                         {...this.state}
                                         {...this.props}
                                     />
