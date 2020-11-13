@@ -50,14 +50,16 @@ class MaintenanceDetails extends Component {
             <div>
                 <h1>Maintenance Details</h1>
                 {this.state.userCarMaintenance != null &&
-                    <div>
-                        Type of Maintenance: {this.state.userCarMaintenance.itemDescription}<br />
-                        Miles on Car: {this.state.userCarMaintenance.carMiles}<br />
-                        Notes: {this.state.userCarMaintenance.notes}<br />
+                    <div className="m-2 border-2 border-black p-2 bg-starblue text-center w-4/5 max-w-md m-auto">
+                        <span className="text-gainsboro">Type of Maintenance: </span>{this.state.userCarMaintenance.itemDescription}<br />
+                        <span className="text-gainsboro">Miles on Car: </span>{this.state.userCarMaintenance.carMiles}<br />
+                        <span className="text-gainsboro">Notes: </span>{this.state.userCarMaintenance.notes}<br />
                     </div>
                 }<br />
                 <nav>
-                    <Link to={"/profile/car/" + this.props.carId + "/maintenanceItem/" + this.props.match.params.maintenanceDetails + "/edit"}>
+                    <Link to={"/profile/car/" + this.props.carId + "/maintenanceItem/" + this.props.match.params.maintenanceDetails + "/edit"}
+                        className="hover:text-lavender hover:underline"
+                    >
                         Edit Maintenance Item
                     </Link>
                 </nav>

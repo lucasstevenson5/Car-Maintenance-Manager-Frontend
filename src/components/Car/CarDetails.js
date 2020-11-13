@@ -51,7 +51,7 @@ class CarDetails extends Component {
     render() {
         return (
             <div className="bg-gainsboro text-center">
-                <nav className="bg-shamrock p-4">
+                <nav className="bg-shamrock p-6 border-solid border-b-2 border-t-2 border-black">
                     <Link to={"/profile/car/" + this.props.match.params.carDetails + "/edit"}
                         className="hover:text-gainsboro hover:underline"
                     >Edit Car</Link>

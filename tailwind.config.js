@@ -14,6 +14,7 @@ module.exports = {
         lavender: '#6e647d',
         gainsboro: '#dbd9db',
         shamrock: '#49a078',
+        salsa: '#f03a47'
       }
     },
   },

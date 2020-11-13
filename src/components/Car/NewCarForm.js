@@ -28,7 +28,7 @@ class NewCarForm extends Component {
                     className="flex flex-col border-solid border-2 border-gray-900 bg-blackcoral w-3/5 max-w-sm m-auto"
                 >
                     <div className="mb-2">
-                        <span className="ml-1">Year:</span>
+                        <span className="ml-1 text-gainsboro">Year:</span>
                         <input 
                             className="border-solid border-2 border-gray-900 mt-2 ml-12 px-1"
                             type="text"
@@ -39,7 +39,7 @@ class NewCarForm extends Component {
                         />
                     </div>
                     <div className="mb-2">
-                        Make: 
+                        <span className="text-gainsboro">Make: </span>
                         <input 
                             className="border-solid border-2 border-gray-900 ml-12 px-1"
                             type="text"
@@ -50,7 +50,7 @@ class NewCarForm extends Component {
                         />
                     </div>
                     <div className="mb-2">
-                        Model: 
+                    <span className="text-gainsboro">Model: </span>
                         <input 
                             className="border-solid border-2 border-gray-900 ml-10 px-1"
                             type="text"
@@ -61,7 +61,7 @@ class NewCarForm extends Component {
                         />
                     </div>
                     <div className="mb-2">
-                        Image URL: 
+                    <span className="text-gainsboro">Image URL: </span>
                         <input 
                             className="border-solid border-2 border-gray-900 ml-2 px-1"
                             type="text"
@@ -75,11 +75,13 @@ class NewCarForm extends Component {
                         <input 
                             type="submit" 
                             value="Add Car to Garage"
-                            className="border-solid border-2 border-gray-900 mb-2 hover:text-gray-600 hover:underline px-2"
+                            className="border-solid border-b-4 border-2 border-starblue hover:text-gray-400 
+                                hover:underline bg-gainsboro hover:bg-starblue p-2 text-starblue
+                                rounded m-2 hover:border-black"
                         />
                     </div>
                 </form>
-                <Link to="/profile/cars" className="hover:text-gray-200 hover:underline">Hide Form</Link>
+                <Link to="/profile/cars" className="hover:text-lavender hover:underline">Hide Form</Link>
             </div>
         )
     }

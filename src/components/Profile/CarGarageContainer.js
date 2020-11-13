@@ -18,7 +18,7 @@ class CarGarageContainer extends Component {
         return (
             <div className="bg-gainsboro">
                 <nav className="text-center">
-                    <Link to="/profile/cars/new" className="text-center hover:text-gray-200 hover:underline">Add a car to your garage</Link>
+                    <Link to="/profile/cars/new" className="text-center hover:text-lavender hover:underline">Add a car to your garage</Link>
                 </nav>
                 <main>
                     <Route exact path="/profile/cars/new" 

@@ -82,7 +82,7 @@ class Profile extends Component {
     render() {
         return (
             <div>
-                <nav className="text-center bg-starblue p-6">
+                <nav className="text-center bg-starblue p-6 border-solid border-b-2 border-black">
                     <Link to="/profile/edit" 
                         className="hover:text-gainsboro hover:underline">
                             Edit Profile Info

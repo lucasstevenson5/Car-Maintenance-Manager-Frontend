@@ -16,7 +16,7 @@ class MaintenanceContainer extends Component {
                     <h3>Your {this.props.userCar.make} {this.props.userCar.model}'s Maintenance Items</h3>
                 }<br />
                 <nav>
-                    <Link to ={"/profile/car/" + this.props.carId + "/maintenance/new"}>Add Maintenance Item</Link>
+                    <Link to ={"/profile/car/" + this.props.carId + "/maintenance/new"} className="hover:text-lavender hover:underline">Add Maintenance Item</Link>
                 </nav><br />
                 <main>
                     <Route path="/profile/car/:carDetails/maintenance/new" 
@@ -31,7 +31,7 @@ class MaintenanceContainer extends Component {
                         }}
                     />
                     {this.props.userCar ?
-                        <div>
+                        <div className="flex flex-wrap justify-center">
                             {this.props.userCar.MaintenanceItems.map((item, id) => {
                                 return  <MaintenanceList
                                             maintenanceItem={item}

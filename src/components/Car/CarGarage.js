@@ -15,7 +15,7 @@ class CarGarage extends Component {
                 <img src={this.props.car.image} alt="picture of your car" 
                     className="h-48 max-w-xs" 
                 />
-                <Link to={"/profile/car/" + this.props.car.id}>
+                <Link to={"/profile/car/" + this.props.car.id} className="hover:text-gainsboro hover:underline">
                     View Details
                 </Link><br /><br />
             </div>

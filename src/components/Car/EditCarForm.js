@@ -39,7 +39,7 @@ class CarDetails extends Component {
                     className="flex flex-col w-3/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-sm m-auto"
                 >
                     <div className="my-2">
-                        <span className="ml-1">Year:</span>
+                        <span className="ml-1 text-gainsboro">Year:</span>
                         <input 
                             className="border-solid border-2 border-gray-900 ml-12 px-1"
                             type="text"
@@ -50,7 +50,7 @@ class CarDetails extends Component {
                         />
                     </div>
                     <div className="mb-2">
-                        Make: 
+                        <span className="text-gainsboro">Make: </span>
                         <input 
                             className="border-solid border-2 border-gray-900 ml-12 px-1"
                             type="text"
@@ -61,7 +61,7 @@ class CarDetails extends Component {
                         />
                     </div>
                     <div className="mb-2">
-                        Model: 
+                        <span className="text-gainsboro">Model: </span>
                         <input 
                             className="border-solid border-2 border-gray-900 ml-10 px-1"
                             type="text"
@@ -72,7 +72,7 @@ class CarDetails extends Component {
                         />
                     </div>
                     <div className="mb-2">
-                        Image URL: 
+                        <span className="text-gainsboro">Image URL: </span>
                         <input 
                             className="border-solid border-2 border-gray-900 ml-2 px-1"
                             type="text"
@@ -84,7 +84,9 @@ class CarDetails extends Component {
                     </div>
                     <div className="mb-2">
                         <input type="submit" value="Edit Car"
-                            className="border-solid border-2 border-gray-900 hover:text-lavender hover:underline"
+                            className="border-solid border-b-4 border-2 border-shamrock hover:text-gray-400 
+                                hover:underline bg-gainsboro hover:bg-shamrock p-2 text-shamrock
+                                rounded hover:border-black mt-2"
                         />
                     </div>
                 </form>
@@ -94,7 +96,11 @@ class CarDetails extends Component {
                     >Hide Form</Link><br />
                 </div>
                 
-                <button onClick={(e) => this.props.deleteACar(e, parseInt(this.props.match.params.carDetails))}>Delete this car from your garage</button>
+                <button onClick={(e) => this.props.deleteACar(e, parseInt(this.props.match.params.carDetails))}
+                    className="hover:text-salsa hover:underline hover:font-bold"
+                >
+                    Delete this car from your garage
+                </button>
             </div>
         ) 
     }
