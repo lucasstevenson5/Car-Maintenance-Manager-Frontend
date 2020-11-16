@@ -56,7 +56,7 @@ class EditProfileInfo extends Component {
                                 onChange={this.updateForm}
                             />  
                         </div>
-                        <div className="flex flex-col sm:flex-row sm:justify-between mb-4">
+                        {/* <div className="flex flex-col sm:flex-row sm:justify-between mb-4">
                             <span className="text-gainsboro">Password: </span>
                             <input 
                                 className="border-solid border-2 border-gray-900 pl-1"
@@ -66,7 +66,7 @@ class EditProfileInfo extends Component {
                                 value={this.state.password}
                                 onChange={this.updateForm}
                             />
-                        </div>
+                        </div> */}
                         
                         <input 
                             type="submit" 

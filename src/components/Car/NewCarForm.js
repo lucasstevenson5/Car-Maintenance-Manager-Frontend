@@ -7,7 +7,7 @@ class NewCarForm extends Component {
         super(props);
 
         this.state = {
-            year: undefined,
+            year: "",
             make: "",
             model: "",
             image: ""
