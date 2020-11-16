@@ -26,11 +26,11 @@ class Profile extends Component {
 
     updateProfile = async (e, registerData) => {
         e.preventDefault();
-        let userProf = await updateProf(registerData);
-        console.log(userProf);
+        const userProf = await updateProf(registerData);
         this.setState({
             userProf: userProf
         })
+        window.location.reload(false);
     }
 
     deleteProfile = async (e) => {
@@ -49,9 +49,7 @@ class Profile extends Component {
         e.preventDefault();
         const userProf = this.state.userProf;
         const data = await postCar(car);
-        console.log(data);
         userProf.Cars.push(data);
-        console.log(userProf);
         this.setState({
             userProf: userProf
         })

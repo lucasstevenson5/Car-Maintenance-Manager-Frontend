@@ -27,7 +27,7 @@ class MaintenanceDetails extends Component {
         const data = await updateMaintenance(index, item);
         console.log(data)
         this.props.history.push(`/profile/car/${this.props.match.params.carDetails}/maintenanceItem/${index}`)
-        this.rendSingleMaintenanceItem();
+        window.location.reload(false);
     }
 
     deleteMaintenanceItem = async (e, id) => {
@@ -36,7 +36,7 @@ class MaintenanceDetails extends Component {
         if (userResp === "Y" || userResp == "y") {
             await deleteMaintenance(id);
             this.props.history.push(`/profile/car/${this.props.match.params.carDetails}/maintenance/`)
-            this.rendSingleMaintenanceItem();
+            window.location.reload(false);
         }
     }
 

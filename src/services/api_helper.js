@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: "https://cryptic-chamber-59112.herokuapp.com"
+    baseURL: "http://localhost:3001"
 })
 
 // ================== AUTH ==================
@@ -108,4 +108,27 @@ export const updateMaintenance = async (index, updateData) => {
 export const deleteMaintenance = async (index) => {
     await api.delete(`/maintenance/${index}`);
     return;
+}
+
+// ================== MAINTENANCE SCHEDULE ==================
+
+export const rendSchedule = async (index, rendData) => {
+    const resp = await api.get(`/schedule/${index}`, rendData);
+    return resp.data;
+}
+
+export const updateSchedule = async (index, updateData) => {
+    const resp = await api.put(`/schedule/${index}`, updateData);
+    return resp.data;
+}
+
+export const deleteSchedule = async (index) => {
+    await api.delete(`/schedule/${index}`);
+    return;
+}
+
+export const postSchedule = async (addData) => {
+    console.log(addData)
+    const resp = await api.post("/schedule/new", addData);
+    return resp.data;
 }

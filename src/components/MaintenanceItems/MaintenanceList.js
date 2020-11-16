@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function MaintenanceList(props) {
-    console.log(props)
     return (
         <div className="m-2 border-2 border-black p-2 bg-starblue text-center w-3/5 max-w-md">
             <span className="text-gainsboro">Type of Maintenance: </span>{props.maintenanceItem.itemDescription}<br />

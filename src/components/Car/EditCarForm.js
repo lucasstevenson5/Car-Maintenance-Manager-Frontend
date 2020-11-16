@@ -7,7 +7,7 @@ class CarDetails extends Component {
         super(props);
 
         this.state = {
-            year: 0,
+            year: "",
             make: "",
             model: "",
             image: ""
@@ -34,14 +34,13 @@ class CarDetails extends Component {
     render() {
         return (
             <div>
-                
                 <form onSubmit={(e) => this.props.editCar(e, parseInt(this.props.match.params.carDetails), this.state)}
                     className="flex flex-col w-3/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-sm m-auto"
                 >
-                    <div className="my-2">
-                        <span className="ml-1 text-gainsboro">Year:</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2">
+                        <span className="text-gainsboro">Year:</span>
                         <input 
-                            className="border-solid border-2 border-gray-900 ml-12 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="year"
                             placeholder="model year"
@@ -49,10 +48,10 @@ class CarDetails extends Component {
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
                         <span className="text-gainsboro">Make: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 ml-12 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="make"
                             placeholder="car manufacturer"
@@ -60,10 +59,10 @@ class CarDetails extends Component {
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
                         <span className="text-gainsboro">Model: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 ml-10 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="model"
                             placeholder="model of car"
@@ -71,10 +70,10 @@ class CarDetails extends Component {
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
                         <span className="text-gainsboro">Image URL: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 ml-2 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="image"
                             placeholder="url of image of car"

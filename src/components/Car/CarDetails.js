@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import EditCarForm from './EditCarForm';
 import MaintenanceContainer from '../MaintenanceItems/MaintenanceContainer';
 import MaintenanceDetails from '../MaintenanceItems/MaintenanceDetails';
-import EditMaintenanceItem from '../MaintenanceItems/EditMaintenanceItem';
+import ScheduleContainer from '../MaintenanceSchedule/ScheduleContainer';
+import ScheduleDetails from '../MaintenanceSchedule/ScheduleDetails';
 
-import { rendCar, postMaintenance, updateMaintenance } from '../../services/api_helper';
+import { rendCar, postMaintenance, postSchedule } from '../../services/api_helper';
 
 import { Link, Route } from 'react-router-dom';
 
@@ -27,21 +28,19 @@ class CarDetails extends Component {
 
     addMaintenanceItem = async (e, index, item) => {
         e.preventDefault();
-        console.log("in here")
-        console.log(index)
         item.carId = parseInt(index);
-        console.log(item)
-        const data = await postMaintenance(item);
-        console.log(data);
+        await postMaintenance(item);
+        this.props.history.push(`/profile/car/${index}/maintenance`)
+        window.location.reload(false);
     }
-
-    // editMaintenanceItem = async (e, index, item) => {
-    //     e.preventDefault();
-    //     const data = await updateMaintenance(index, item);
-    //     console.log(data)
-    //     this.props.history.push(`/profile/car/${this.props.match.params.carDetails}/maintenanceItem/${index}`)
-    //     this.rendSingleCar();
-    // }
+    
+    addScheduleItem = async (e, index, item) => {
+        e.preventDefault();
+        item.carId = parseInt(index);
+        await postSchedule(item);
+        this.props.history.push(`/profile/car/${index}/schedule`)
+        window.location.reload(false);
+    }
 
     componentDidMount() {
         this.props.handleVerify();
@@ -96,10 +95,20 @@ class CarDetails extends Component {
                                     />
                         }}
                     />
+                    <Route path="/profile/car/:carDetails/schedule" 
+                        render={ (props) => {
+                            return  <ScheduleContainer
+                                        addScheduleItem={this.addScheduleItem}
+                                        userProf={this.props.userProf}
+                                        carId={this.props.match.params.carDetails}
+                                        {...props}
+                                        {...this.state}
+                                    />
+                        }}
+                    />
                     <Route path="/profile/car/:carDetails/maintenanceItem/:maintenanceDetails" 
                         render={ (props) => {
                             return  <MaintenanceDetails
-                                        // editMaintenanceItem={this.editMaintenanceItem}
                                         handleVerify={this.props.handleVerify}
                                         userProf={this.props.userProf}
                                         carId={this.props.match.params.carDetails}
@@ -108,9 +117,9 @@ class CarDetails extends Component {
                                     />
                         }}
                     />
-                    {/* <Route path="/profile/car/:carDetails/maintenanceItem/:maintenanceDetails/edit" 
+                    <Route path="/profile/car/:carDetails/scheduleItem/:scheduleDetails" 
                         render={ (props) => {
-                            return  <EditMaintenanceItem
+                            return  <ScheduleDetails
                                         handleVerify={this.props.handleVerify}
                                         userProf={this.props.userProf}
                                         carId={this.props.match.params.carDetails}
@@ -118,7 +127,7 @@ class CarDetails extends Component {
                                         {...this.state}
                                     />
                         }}
-                    /> */}
+                    />
                 </main>
             </div>
         ) 

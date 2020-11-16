@@ -7,7 +7,7 @@ class NewCarForm extends Component {
         super(props);
 
         this.state = {
-            year: 0,
+            year: undefined,
             make: "",
             model: "",
             image: ""
@@ -27,10 +27,10 @@ class NewCarForm extends Component {
                 <form onSubmit={(e) => this.props.addCar(e, this.state)} 
                     className="flex flex-col border-solid border-2 border-gray-900 bg-blackcoral w-3/5 max-w-sm m-auto"
                 >
-                    <div className="mb-2">
-                        <span className="ml-1 text-gainsboro">Year:</span>
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2">
+                        <span className="text-gainsboro">Year:</span>
                         <input 
-                            className="border-solid border-2 border-gray-900 mt-2 ml-12 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="year"
                             placeholder="model year"
@@ -38,10 +38,10 @@ class NewCarForm extends Component {
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
                         <span className="text-gainsboro">Make: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 ml-12 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="make"
                             placeholder="car manufacturer"
@@ -49,10 +49,10 @@ class NewCarForm extends Component {
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
                     <span className="text-gainsboro">Model: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 ml-10 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="model"
                             placeholder="model of car"
@@ -60,10 +60,10 @@ class NewCarForm extends Component {
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
                     <span className="text-gainsboro">Image URL: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 ml-2 px-1"
+                            className="border-solid border-2 border-gray-900 px-1"
                             type="text"
                             name="image"
                             placeholder="url of image of car"

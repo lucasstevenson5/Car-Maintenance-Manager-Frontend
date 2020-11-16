@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
-class EditMaintenanceItem extends Component {
+class EditScheduleItem extends Component {
     constructor(props) {
         super(props);
 
@@ -20,11 +20,11 @@ class EditMaintenanceItem extends Component {
     }
 
     componentDidMount = async () => {
-        if (this.props.userCarMaintenance != null) {
+        if (this.props.userCarSchedule != null) {
             this.setState({
-                itemDescription: this.props.userCarMaintenance.itemDescription,
-                carMiles: this.props.userCarMaintenance.carMiles,
-                notes: this.props.userCarMaintenance.notes
+                itemDescription: this.props.userCarSchedule.itemDescription,
+                carMiles: this.props.userCarSchedule.carMiles,
+                notes: this.props.userCarSchedule.notes
             }) 
         }
     }
@@ -32,65 +32,64 @@ class EditMaintenanceItem extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={(e) => this.props.editMaintenanceItem(e, this.props.match.params.maintenanceDetails, this.state)}
-                    className="flex flex-col w-4/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-lg m-auto"
+                <form onSubmit={(e) => this.props.editScheduleItem(e, this.props.match.params.scheduleDetails, this.state)}
+                    className="flex flex-col w-3/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-sm m-auto"
                 >
-                    <div className="flex flex-col sm:flex-row sm:justify-between m-2">
-                        <span className="text-gainsboro">Item Description: </span>
+                    <div className="my-2">
+                        <span className="text-gainsboro text">Item Description: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 sm:w-3/5"
+                            className="border-solid border-2 border-gray-900"
                             type="text"
                             name="itemDescription"
-                            placeholder="What was done?"
+                            placeholder="Maintenance Item"
                             value={this.state.itemDescription}
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
-                        <span className="text-gainsboro">Mileage: </span>
+                    <div className="mb-2">
+                        <span className="text-gainsboro">Every: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 sm:w-3/5"
+                            className="border-solid border-2 border-gray-900"
                             type="text"
                             name="carMiles"
-                            placeholder="How many miles on the car?"
+                            placeholder="Mileage Interval"
                             value={this.state.carMiles}
                             onChange={this.updateForm}
                         />
+                        <span className="text-gainsboro"> Miles</span>
                     </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between m-2 mt-0">
+                    <div className="mb-2">
                         <span className="text-gainsboro">Notes: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900 sm:w-3/5"
+                            className="border-solid border-2 border-gray-900"
                             type="text"
                             name="notes"
-                            placeholder="Any notes? Who did the work?"
+                            placeholder="Any notes?"
                             value={this.state.notes}
                             onChange={this.updateForm}
                         />
                     </div>
                     <div className="mb-2">
-                        <input type="submit" value="Edit Maintenance Item"
+                        <input type="submit" value="Edit Schedule Item"
                             className="border-solid border-b-4 border-2 border-shamrock hover:text-gray-400 
                             hover:underline bg-gainsboro hover:bg-shamrock p-2 text-shamrock
                             rounded hover:border-black mt-2"
                         />
                     </div>
                 </form><br />
-                <Link to={"/profile/car/" + this.props.carId + "/maintenanceItem/" + this.props.match.params.maintenanceDetails}
+                <Link to={"/profile/car/" + this.props.carId + "/scheduleItem/" + this.props.match.params.scheduleDetails}
                     className="hover:text-lavender hover:underline"
                 >
                     Hide Form
                 </Link><br /><br />
-                <button onClick={(e) => this.props.deleteMaintenanceItem(e, parseInt(this.props.match.params.maintenanceDetails))}
+                <button onClick={(e) => this.props.deleteScheduleItem(e, parseInt(this.props.match.params.scheduleDetails))}
                     className="hover:text-salsa hover:underline hover:font-bold"
                 >
                     Delete this Maintenance Item
                 </button><br /><br />
-                
-                
             </div>
         )
     }
 }
 
-export default EditMaintenanceItem;
+export default EditScheduleItem;

@@ -8,16 +8,16 @@ function Header(props) {
                 <Link to="/" className="hover:text-black hover:underline hover:text-3xl">Car Maintenance Manager</Link>
                 <nav className="text-center border-t-2 sm:border-none">
                     {!props.currentUser && <Link to="/signup" 
-                        className="hover:text-black hover:underline">Sign Up</Link>}
+                        className="mr-4 hover:text-black hover:underline">Sign Up</Link>}
 
                     {!props.currentUser && <Link to="/login" 
-                        className="ml-8 hover:text-black hover:underline">Log In</Link>}
+                        className="ml-4 hover:text-black hover:underline">Log In</Link>}
 
                     {props.currentUser && <Link to="/profile" 
-                        className="mr-8 hover:text-black hover:underline">Your Profile</Link>}
+                        className="mr-4 hover:text-black hover:underline">Your Profile</Link>}
 
                     {props.currentUser && <button onClick={(e) => props.handleLogout(e)} 
-                        className="mr-8 hover:text-black hover:underline">Logout</button>}
+                        className="ml-4 hover:text-black hover:underline">Logout</button>}
 
                 </nav>
             </header>
