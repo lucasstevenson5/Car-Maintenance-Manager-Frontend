@@ -33,12 +33,12 @@ class EditScheduleItem extends Component {
         return (
             <div>
                 <form onSubmit={(e) => this.props.editScheduleItem(e, this.props.match.params.scheduleDetails, this.state)}
-                    className="flex flex-col w-3/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-sm m-auto"
+                    className="flex flex-col w-4/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-lg m-auto"
                 >
-                    <div className="my-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2">
                         <span className="text-gainsboro text">Item Description: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900"
+                            className="border-solid border-2 border-gray-900 sm:w-3/5"
                             type="text"
                             name="itemDescription"
                             placeholder="Maintenance Item"
@@ -46,22 +46,25 @@ class EditScheduleItem extends Component {
                             onChange={this.updateForm}
                         />
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2">
                         <span className="text-gainsboro">Every: </span>
-                        <input 
-                            className="border-solid border-2 border-gray-900"
-                            type="text"
-                            name="carMiles"
-                            placeholder="Mileage Interval"
-                            value={this.state.carMiles}
-                            onChange={this.updateForm}
-                        />
-                        <span className="text-gainsboro"> Miles</span>
+                        <div className="flex justify-between sm:w-3/5">
+                            <input 
+                                className="border-solid border-2 border-gray-900 w-4/5"
+                                type="text"
+                                name="carMiles"
+                                placeholder="Mileage Interval"
+                                value={this.state.carMiles}
+                                onChange={this.updateForm}
+                            />
+                            <span className="text-gainsboro"> Miles</span>
+                        </div>
+                        
                     </div>
-                    <div className="mb-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between m-2">
                         <span className="text-gainsboro">Notes: </span>
                         <input 
-                            className="border-solid border-2 border-gray-900"
+                            className="border-solid border-2 border-gray-900 sm:w-3/5"
                             type="text"
                             name="notes"
                             placeholder="Any notes?"
