@@ -8,6 +8,8 @@ import ScheduleDetails from '../MaintenanceSchedule/ScheduleDetails';
 import { rendCar, postMaintenance, postSchedule } from '../../services/api_helper';
 
 import { Link, Route } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 
 class CarDetails extends Component {
@@ -45,6 +47,50 @@ class CarDetails extends Component {
     componentDidMount() {
         this.props.handleVerify();
         this.rendSingleCar();
+    }
+
+    generatePDF = (car) => {
+        const doc = new jsPDF();
+
+        const tableColumn = ["Maintenance Item Description", "Mileage on Car", "Notes", "Created"];
+        const tableRows = [];
+
+        const items = car.MaintenanceItems;
+
+        items.forEach(item => {
+            const itemData = [
+                item.itemDescription,
+                item.carMiles,
+                item.notes,
+                item.createdAt
+            ];
+            tableRows.push(itemData);
+        });
+        
+        doc.autoTable(tableColumn, tableRows, { startY: 13 });
+        doc.save(`${car.year}_${car.make}_${car.model}_Maintenance_Log.pdf`);
+    }
+
+    generatePDF2 = (car) => {
+        const doc = new jsPDF();
+
+        const tableColumn = ["Type of Maintenance", "Every _ Miles", "Notes", "Created"];
+        const tableRows = [];
+
+        const items = car.MaintenanceSchedules;
+
+        items.forEach(item => {
+            const itemData = [
+                item.itemDescription,
+                item.carMiles,
+                item.notes,
+                item.createdAt
+            ];
+            tableRows.push(itemData);
+        });
+        
+        doc.autoTable(tableColumn, tableRows, { startY: 13 });
+        doc.save(`${car.year}_${car.make}_${car.model}_Maintenance_Schedule.pdf`);
     }
 
     render() {
@@ -87,6 +133,7 @@ class CarDetails extends Component {
                     <Route path="/profile/car/:carDetails/maintenance" 
                         render={ (props) => {
                             return  <MaintenanceContainer
+                                        generatePDF={this.generatePDF}
                                         addMaintenanceItem={this.addMaintenanceItem}
                                         userProf={this.props.userProf}
                                         carId={this.props.match.params.carDetails}
@@ -98,6 +145,7 @@ class CarDetails extends Component {
                     <Route path="/profile/car/:carDetails/schedule" 
                         render={ (props) => {
                             return  <ScheduleContainer
+                                        generatePDF2={this.generatePDF2}
                                         addScheduleItem={this.addScheduleItem}
                                         userProf={this.props.userProf}
                                         carId={this.props.match.params.carDetails}

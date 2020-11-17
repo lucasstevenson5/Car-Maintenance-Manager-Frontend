@@ -15,6 +15,13 @@ class ScheduleContainer extends Component {
                 {this.props.userCar &&
                     <h3>Your {this.props.userCar.make} {this.props.userCar.model}'s Maintenance Schedule</h3>
                 }<br />
+                {this.props.userCar &&
+                <button onClick={() => this.props.generatePDF2(this.props.userCar)}
+                    className="border-solid border-b-4 border-2 border-shamrock hover:text-gray-400 
+                    hover:underline bg-blackcoral hover:bg-shamrock p-2 text-shamrock
+                    rounded hover:border-black"
+                >Generate PDF of your {this.props.userCar.model}'s Maintenance Schedule</button>
+                }<br /><br />
                 <nav>
                     <Link to ={"/profile/car/" + this.props.carId + "/schedule/new"} className="hover:text-lavender hover:underline">Add Maintenance Schedule Item</Link>
                 </nav><br />

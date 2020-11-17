@@ -15,6 +15,13 @@ class MaintenanceContainer extends Component {
                 {this.props.userCar &&
                     <h3>Your {this.props.userCar.make} {this.props.userCar.model}'s Maintenance Items</h3>
                 }<br />
+                {this.props.userCar &&
+                <button onClick={() => this.props.generatePDF(this.props.userCar)}
+                    className="border-solid border-b-4 border-2 border-shamrock hover:text-gray-400 
+                    hover:underline bg-blackcoral hover:bg-shamrock p-2 text-shamrock
+                    rounded hover:border-black"
+                >Generate PDF of your {this.props.userCar.model}'s Maintenance Log</button>
+                }<br /><br />
                 <nav>
                     <Link to ={"/profile/car/" + this.props.carId + "/maintenance/new"} className="hover:text-lavender hover:underline">Add Maintenance Item</Link>
                 </nav><br />
