@@ -87,7 +87,6 @@ export const rendCar = async (index, rendData) => {
 
 // goes to http://localhost:3001/maintenance/new and adds a new maintenance item and ties it to that car's id
 export const postMaintenance = async (addData) => {
-    console.log(addData)
     const resp = await api.post("/maintenance/new", addData);
     return resp.data;
 }
@@ -128,7 +127,6 @@ export const deleteSchedule = async (index) => {
 }
 
 export const postSchedule = async (addData) => {
-    console.log(addData)
     const resp = await api.post("/schedule/new", addData);
     return resp.data;
 }

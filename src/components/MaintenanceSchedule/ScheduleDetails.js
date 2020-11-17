@@ -48,7 +48,7 @@ class ScheduleDetails extends Component {
         return (
             <div>
                 {this.state.userCarSchedule != null &&
-                       <h1>{this.state.userCarSchedule.itemDescription}'s Maintenance Schedule</h1>
+                       <h1 className="text-xl">{this.state.userCarSchedule.itemDescription}'s Maintenance Schedule</h1>
                 }
                 {this.state.userCarSchedule != null &&
                     <div className="m-2 border-2 border-black p-2 bg-starblue text-center w-4/5 max-w-md m-auto">

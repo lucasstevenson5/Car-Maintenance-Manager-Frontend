@@ -13,7 +13,7 @@ class ScheduleContainer extends Component {
         return (
             <div>
                 {this.props.userCar &&
-                    <h3>Your {this.props.userCar.make} {this.props.userCar.model}'s Maintenance Schedule</h3>
+                    <h3 className="text-xl">Your {this.props.userCar.make} {this.props.userCar.model}'s Maintenance Schedule</h3>
                 }<br />
                 {this.props.userCar &&
                 <button onClick={() => this.props.generatePDF2(this.props.userCar)}

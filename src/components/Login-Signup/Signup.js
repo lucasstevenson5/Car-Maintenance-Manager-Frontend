@@ -19,67 +19,50 @@ class Signup extends Component {
         })
     }
 
-    // checkPasswordMatch = () => {
-    //     if(this.state.password != this.state.passwordConfirm) {
-    //         this.setState({
-    //             error: "Passwords Do Not Match"
-    //         })
-    //     } else {
-    //         this.setState({
-    //             error: ""
-    //         })
-    //     }
-    // }
-
     render() {
         return (
             <div className="bg-gainsboro">
-                <h1 className="text-center">Sign Up Page</h1>
-                <div className="flex flex-wrap justify-center">
-                    {this.state.error && <div>{this.state.error}</div>}<br />
+                <h1 className="text-center text-2xl">Sign Up Page</h1>
+                {this.props.error && 
+                    <div className="text-center text-red-500 font-bold">Username {this.props.errorMsg} is already taken</div>
+                }
+                <div className="g-gainboro text-center pb-10 pt-4">
                     <form onSubmit={(e) => this.props.handleSignup(e, this.state)}
-                        className="mb-4 text-center w-3/5 border-solid border-2 border-gray-900 bg-blackcoral max-w-sm m-auto"
+                        className="bg-blackcoral p-2 border-solid border-2 border-gray-900 w-3/5 max-w-sm text-center m-auto"
                     >
-                        <div className="my-2">
+                        <div className="flex flex-col sm:flex-row sm:justify-between mb-2">
                             <span className="text-gainsboro">Full Name: </span>
                             <input 
-                                className="border-solid border-2 border-gray-900"
+                                className="border-solid border-2 border-gray-900 pl-1"
                                 type="text"
                                 name="name"
                                 placeholder="Your name... duh"
                                 value={this.state.name}
                                 onChange={this.updateForm}
-                            /><br /><br />
+                            />
                         </div>
-                        <div className="mb-2">
+                        <div className="flex flex-col sm:flex-row sm:justify-between mb-2">
                             <span className="text-gainsboro">Username: </span>
                             <input 
-                                className="border-solid border-2 border-gray-900"
+                                className="border-solid border-2 border-gray-900 pl-1"
                                 type="text"
                                 name="username"
                                 placeholder="username"
                                 value={this.state.username}
                                 onChange={this.updateForm}
-                            /><br /><br />
+                            />
                         </div>
-                        <div className="mb-2">
+                        <div className="flex flex-col sm:flex-row sm:justify-between mb-2">
                             <span className="text-gainsboro">Password: </span>
                             <input 
-                                className="border-solid border-2 border-gray-900"
+                                className="border-solid border-2 border-gray-900 pl-1"
                                 type="password"
                                 name="password"
                                 placeholder="password"
                                 value={this.state.password}
                                 onChange={this.updateForm}
-                            /><br /><br />
+                            />
                         </div>
-                        {/* <input
-                            type="password"
-                            name="passwordConfirm"
-                            placeholder="confirm password"
-                            value={this.state.passwordConfirm}
-                            onChange={this.updateForm}
-                        /> */}
                         <div className="mb-2">
                             <input 
                                 type="submit" 
@@ -89,10 +72,8 @@ class Signup extends Component {
                                 rounded m-2 hover:border-black"
                             />
                         </div>
-                        
                     </form>
                 </div>
-                
             </div>
         )
     }

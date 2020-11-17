@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CarGarage from '../Car/CarGarage';
 import NewCarForm from '../Car/NewCarForm';
-import CarDetails from '../Car/CarDetails';
 
 import { Link, Route } from 'react-router-dom';
 

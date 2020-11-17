@@ -15,27 +15,60 @@ class App extends Component {
     super();
 
     this.state = {
-      currentUser: null
-      
+      currentUser: null,
+      error: false,
+      errorLogin: false,
+      errorMsg: "",
+      errorMsgLogin: ""
     }
   }
 
   handleSignup = async (e, registerData) => {
     e.preventDefault();
-    const currentUser = await registerUser(registerData);
-    this.setState({
-      currentUser: currentUser
-    })
-    this.props.history.push('/profile');
+    try {
+      const currentUser = await registerUser(registerData);
+      this.setState({
+        currentUser: currentUser,
+        error: false,
+        errorLogin: false,
+        errorMsg: "",
+        errorMsgLogin: ""
+      })
+      this.props.history.push('/profile');
+    }
+    catch (error) {
+      if (error.response.data.error.errors[0].message == "username must be unique") {
+        let errorMsg = error.response.data.error.errors[0].instance.username
+        this.setState({
+          error: true,
+          errorMsg
+        })
+      }
+    }
   }
 
   handleLogin = async (e, registerData) => {
     e.preventDefault();
-    const currentUser = await loginUser(registerData);
-    this.setState({
-      currentUser: currentUser
-    })
-    this.props.history.push('/profile');
+    try {
+      const currentUser = await loginUser(registerData);
+      this.setState({
+        currentUser: currentUser,
+        error: false,
+        errorLogin: false,
+        errorMsg: "",
+        errorMsgLogin: ""
+      })
+      this.props.history.push('/profile');
+    }
+    catch (error) {
+      if (error.response.data == "ERROR: Incorrect Username/Password") {
+        let errorMsgLogin = "Incorrect Credentials"
+        this.setState({
+          errorLogin: true,
+          errorMsgLogin
+        })
+      }
+    }
   }
 
   handleVerify = async () => {
@@ -69,6 +102,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        
         <Header handleLogout={this.handleLogout} {...this.state} />
         <main>
           <Route exact path="/"
@@ -109,119 +143,3 @@ class App extends Component {
 }
 
 export default withRouter(App);
-
-// users: [{
-      //   name: "Random User",
-      //   username: "username",
-      //   password: "password",
-      //   userCars: [
-      //     {
-      //       year: 2006,
-      //       make: "Honda",
-      //       model: "Accord",
-      //       image: "https://www.iihs.org/api/ratings/model-year-images/2355"
-      //     },
-      //     {
-      //       year: 2020,
-      //       make: "Lamborghini",
-      //       model: "Aventador",
-      //       image: "https://www.kbb.com/wp-content/uploads/2019/11/05-2020-lamborghini-aventador-svj-roadster-1.jpg"
-      //     },
-      //   ]
-      // }],
-      // loggedIn: false,
-      // error: "",
-      // loggedInUser: {}
-
-
-  // handleSignup = (e, userInfo) => {
-  //   e.preventDefault();
-  //   userInfo.userCars = [];
-  //   const users = this.state.users;
-  //   const loggedInUser = userInfo
-  //   delete userInfo.passwordConfirm;
-  //   delete userInfo.error;
-    
-  //   users.push(userInfo)
-
-  //   this.setState({
-  //     users: users,
-  //     loggedInUser: loggedInUser,
-  //     loggedIn: true
-  //   })
-  //   this.props.history.push('/profile')
-  // }
-
-  // handleLogin = (e, userInfo) => {
-  //   e.preventDefault();
-  //   const users = this.state.users;
-  //   const filteredUser = users.filter(
-  //     user => {
-  //       return user.username === userInfo.username && user.password === userInfo.password
-  //     }
-  //   )
-  //   if(filteredUser.length > 0) {
-  //     this.setState({
-  //       loggedIn: true,
-  //       loggedInUser: filteredUser[0]
-  //     })
-  //     this.props.history.push('/profile')
-  //   } else {
-  //     this.setState({
-  //       error: "Incorrect Credentials"
-  //     })
-  //   }
-  // }
-
-  // handleLogout = (e) => {
-  //   e.preventDefault();
-  //   let loggedInUser = {};
-  //   this.setState({
-  //     loggedIn: false,
-  //     loggedInUser: loggedInUser
-  //   })
-  //   this.props.history.push('/')
-  // }  
-
-  // componentDidMount() {
-  //   if(!this.state.loggedIn) {
-  //     this.props.history.push('/');
-  //   }
-  // }  
-  
-  // handleEditProfile = (e, userInfo) => {
-  //   e.preventDefault();
-  //   const users = this.state.users;
-  //   let loggedInUser = this.state.loggedInUser;
-  //   for(let i = 0; i < users.length; i++) {
-  //     if(users[i].username === loggedInUser.username && users[i].password === loggedInUser.password) {
-  //       users[i] = userInfo
-  //       loggedInUser = userInfo
-  //     }
-  //   }
-  //   this.setState({
-  //     users: users,
-  //     loggedInUser: loggedInUser
-  //   })
-  //   this.props.history.push('/profile')
-  // }  
-  
-  // deleteProfile = (e) => {
-  //   e.preventDefault();
-  //   const userResp = prompt("Are you sure you want to delete your profile? This cannot be undone. [y] for yes, any key for no");
-  //   if (userResp === "Y" || userResp == "y") {
-  //     const users = this.state.users
-  //     for (let i = 0; i < users.length; i++) {
-  //       if (users[i].username === this.state.loggedInUser.username) {
-  //         users.splice(i, 1)
-  //       }
-  //     }
-  //     let loggedInUser = {};
-  //     this.setState({
-  //       users: users,
-  //       loggedIn: false,
-  //       loggedInUser: loggedInUser
-  //     })
-  //     this.props.history.push('/')
-  //   }
-  // }

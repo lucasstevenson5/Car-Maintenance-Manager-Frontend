@@ -11,7 +11,6 @@ import { Link, Route } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-
 class CarDetails extends Component {
     constructor(props) {
         super(props);
@@ -67,7 +66,8 @@ class CarDetails extends Component {
             tableRows.push(itemData);
         });
         
-        doc.autoTable(tableColumn, tableRows, { startY: 13 });
+        doc.text(`Your ${car.year} ${car.make} ${car.model}'s Maintenance Log`, 14, 15);
+        doc.autoTable(tableColumn, tableRows, { startY: 25 });
         doc.save(`${car.year}_${car.make}_${car.model}_Maintenance_Log.pdf`);
     }
 
@@ -88,8 +88,9 @@ class CarDetails extends Component {
             ];
             tableRows.push(itemData);
         });
-        
-        doc.autoTable(tableColumn, tableRows, { startY: 13 });
+
+        doc.text(`Your ${car.year} ${car.make} ${car.model}'s Maintenance Schedule`, 14, 15);
+        doc.autoTable(tableColumn, tableRows, { startY: 25 });
         doc.save(`${car.year}_${car.make}_${car.model}_Maintenance_Schedule.pdf`);
     }
 
@@ -116,8 +117,6 @@ class CarDetails extends Component {
                     />
                 }<br />
                 
-                
-
                 <main>
                     <Route path="/profile/car/:carDetails/edit" 
                         render={ (props) => {

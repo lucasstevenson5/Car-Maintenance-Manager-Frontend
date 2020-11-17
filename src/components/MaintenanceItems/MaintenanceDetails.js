@@ -5,7 +5,6 @@ import { rendMaintenance, updateMaintenance, deleteMaintenance} from '../../serv
 
 import { Link, Route } from 'react-router-dom';
 
-
 class MaintenanceDetails extends Component {
     constructor(props) {
         super(props);
@@ -25,7 +24,6 @@ class MaintenanceDetails extends Component {
     editMaintenanceItem = async (e, index, item) => {
         e.preventDefault();
         const data = await updateMaintenance(index, item);
-        console.log(data)
         this.props.history.push(`/profile/car/${this.props.match.params.carDetails}/maintenanceItem/${index}`)
         window.location.reload(false);
     }
@@ -48,7 +46,7 @@ class MaintenanceDetails extends Component {
     render() {
         return (
             <div>
-                <h1>Maintenance Details</h1>
+                <h1 className="text-xl">Maintenance Details</h1>
                 {this.state.userCarMaintenance != null &&
                     <div className="m-2 border-2 border-black p-2 bg-starblue text-center w-4/5 max-w-md m-auto">
                         <span className="text-gainsboro">Type of Maintenance: </span>{this.state.userCarMaintenance.itemDescription}<br />
@@ -56,6 +54,7 @@ class MaintenanceDetails extends Component {
                         <span className="text-gainsboro">Notes: </span>{this.state.userCarMaintenance.notes}<br />
                     </div>
                 }<br />
+
                 <nav>
                     <Link to={"/profile/car/" + this.props.carId + "/maintenanceItem/" + this.props.match.params.maintenanceDetails + "/edit"}
                         className="hover:text-lavender hover:underline"
@@ -63,6 +62,7 @@ class MaintenanceDetails extends Component {
                         Edit Maintenance Item
                     </Link>
                 </nav>
+                
                 <main>
                     <Route path="/profile/car/:carDetails/maintenanceItem/:maintenanceDetails/edit" 
                         render={ (props) => {
@@ -78,7 +78,6 @@ class MaintenanceDetails extends Component {
                         }}
                     />
                 </main>
-                
             </div>
         ) 
     }

@@ -18,7 +18,6 @@ function Header(props) {
 
                     {props.currentUser && <button onClick={(e) => props.handleLogout(e)} 
                         className="ml-4 hover:text-black hover:underline">Logout</button>}
-
                 </nav>
             </header>
         </div>

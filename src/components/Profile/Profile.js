@@ -145,8 +145,7 @@ class Profile extends Component {
                 </main>
             </div>
         ) 
-    }
-    
+    } 
 }
 
 export default withRouter(Profile);

@@ -81,13 +81,12 @@ class EditMaintenanceItem extends Component {
                 >
                     Hide Form
                 </Link><br /><br />
+
                 <button onClick={(e) => this.props.deleteMaintenanceItem(e, parseInt(this.props.match.params.maintenanceDetails))}
                     className="hover:text-salsa hover:underline hover:font-bold"
                 >
                     Delete this Maintenance Item
                 </button><br /><br />
-                
-                
             </div>
         )
     }
